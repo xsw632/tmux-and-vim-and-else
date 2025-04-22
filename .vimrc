@@ -30,7 +30,7 @@ set hlsearch                " 高亮搜索
 " ========= 视觉美化 =========
 syntax enable               " 启用语法高亮
 set background=dark         " 配合主题使用，默认 dark
-colorscheme desert          " 主题（可换 molokai / gruvbox 等）
+colorscheme desert
 set laststatus=2            " 总是显示状态栏
 set showtabline=2           " 总是显示标签栏
 
@@ -59,20 +59,16 @@ Plug 'junegunn/fzf.vim'          " 模糊查找
 Plug 'preservim/nerdcommenter'   " 快速注释
 
 " 语法增强
-Plug 'sheerun/vim-polyglot'      " 支持多语言语法高亮
 Plug 'jiangmiao/auto-pairs'      " 自动括号补全
 Plug 'Yggdroot/indentLine'       " 显示缩进线
 Plug 'neoclide/coc.nvim',{'branch':'release'}   "代码格式化
 
-" Git 支持
-Plug 'tpope/vim-fugitive'
 
 " 颜色主题（任选）
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
-
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
-
 " ========= NERDTree 快捷键 =========
 nnoremap <F3> :NERDTreeToggle<CR>
 
@@ -88,4 +84,8 @@ autocmd BufNewFile,BufRead *.c,*.h,*.cpp,*.py,*.java,*.sh setlocal tabstop=4 shi
 " ========= 自动高亮括号 =========
 set showmatch
 set matchtime=2
+
+" ========= 粘贴设置 =========
+" 复制选中内容到系统剪贴板（使用 xclip）
+vnoremap +y :w !xclip -selection clipboard<CR><CR>
 
